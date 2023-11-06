@@ -1,0 +1,29 @@
+.portfolio {
+  padding: 100px 0;
+  background-color: $wild-sand;
+
+  &__title {
+    margin-bottom: 47px;
+
+    @media (max-width: $sm) {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 100px;
+    }
+
+    &-img {
+      max-width: 100%;
+      margin-bottom: 45px;
+    }
+
+    &-link {
+      display: block;
+      text-align: center;
+      text-decoration: underline;
+    }
+  }
+}

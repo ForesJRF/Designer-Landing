@@ -1,0 +1,50 @@
+@import "font-connect";
+
+@import "normalize.css/normalize";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $primary-font-size;
+}
+
+body {
+  font-size: 1rem;
+  font-family: $primary-font-family;
+  line-height: $primary-line-height;
+  font-weight: $primary-font-weight;
+  color: $primary-font-color;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+hr {
+  border: none;
+  min-height: 1px;
+  background-color: $gray;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}

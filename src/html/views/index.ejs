@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%= require('../partials/head.ejs')({ title: 'Главная' }) %>
+  <body>
+    <button class="burger">
+      <span class="stick"></span>
+      <span class="stick"></span>
+      <span class="stick"></span>
+      <span class="stick"></span>
+    </button>
+    <header class="header">
+      <div class="container">
+        <nav class="header__nav">
+          <ul  class="header__list">
+            <li><a data-translate-id="headerHome" class="header__list-link" href="#">Home</a></li>
+            <li><a data-translate-id="headerAbout" class="header__list-link" href="#about">About me</a></li>
+            <li><a data-translate-id="headerSkills" class="header__list-link" href="#skills">Skills</a></li>
+            <li><a data-translate-id="headerPortfolio" class="header__list-link" href="#portfolio">Portfolio</a></li>
+            <li><a data-translate-id="headerContacts" class="header__list-link" href="#contacts">Contacts</a></li>
+          </ul>
+        </nav>
+        <div class="language-switcher header__language">
+          <button data-lng="ru" class="language-switcher__btn header__language-btn">RU</button>
+          <button data-lng="eng" class="language-switcher__btn header__language-btn">ENG</button>
+        </div>
+        <hr class="header__hr" />
+      </div>
+    </header>
+    <main>
+      <section class="author-info">
+        <div class="container">
+          <div class="author-info__wrapper">
+            <h1 data-translate-id="authorName" class="title author-info__title">
+              Denis <br />
+              Novik
+            </h1>
+            <p data-translate-id="authorSubtitle" class="author__info-subtitle">
+              UX | UI designer<br />24 years old, Minsk
+            </p>
+            <div class="language-switcher">
+              <button data-lng="ru" class="language-switcher__btn">RU</button>
+              <button data-lng="eng" class="language-switcher__btn">ENG</button>
+            </div>
+          </div>
+          <picture>
+            <source
+              media="(max-width:578px)"
+              srcset="<%= require('@images/author-sm.jpg') %>"
+            />
+            <img
+              class="author-info__photo"
+              src="<%= require('@images/author.jpg') %>"
+              alt="author"
+            />
+          </picture>
+        </div>
+      </section>
+      <section id="about" class="about-me">
+        <div class="container">
+          <h2 data-translate-id="aboutTitle" class="title about-me__title">About me</h2>
+          <div class="about-me__wrapper">
+            <p data-translate-id="aboutWrapper1" class="about-me__wrapper-p">
+              Hi, I'm Denis – UX/UI designer from Minsk. I'm interested in
+              design and everything connected with it.
+            </p>
+            <p data-translate-id="aboutWrapper2" class="about-me__wrapper-p">
+              I'm studying at courses "Web and mobile design interfaces" in
+              IT-Academy.
+            </p>
+            <p data-translate-id="aboutWrapper3" class="about-me__wrapper-p">
+              Ready to implement excellent projects with wonderful people.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="skills" class="skills">
+        <div class="container">
+          <h2 data-translate-id="skillsTitle" class="title skills__title">Skills</h2>
+          <p data-translate-id="skillsSubtitle" class="skills__subtitle">I work in such programs as</p>
+
+          <% const skills = [
+            { title: 'Adobe <br /> Photoshop', src: 'PS.svg', alt:'Adobe Photoshop', },
+            { title: 'Adobe <br /> Illustrator', src: 'AI.svg', alt: 'Adobe Illustrator',}, 
+            { title: 'Adobe <br /> After Effects', src: 'AE.svg', alt: 'Adobe After Effects', },
+            { title: 'Figma ', src: 'Figma.svg', alt: 'Figma', }] %>
+            
+          <ul class="skills__list">
+            <% skills.forEach(item => { %>
+              <li class="skills__list-item">
+                <img class="skills__list-img" src="<%= require(`@icons/${item.src}`) %>" alt="<%= item.alt %>">
+                <h3 class="skills__list-title"><%= item.title %></h3>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </section>
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+          <h2 data-translate-id="portfolioTitle" class="title portfolio__title">Portfolio</h2>
+          <% const portfolio  = [
+            { title: 'Online fashion store - Homepage', src: 'port-e1.png', alt: 'Fashion store' },
+            { title: 'Reebok Store - Concept', src: 'port-e2.png', alt: 'Reebok Store' },
+            { title: 'Braun Landing Page - Concept', src: 'port-e3.png', alt: 'Braun Landing' }]
+           %>
+
+          <ul class="portfolio__list">
+            <% portfolio.forEach(i => { %>
+              <li class="portfolio__item">
+                <img class="portfolio__item-img" src="<%= require(`@images/${i.src}`) %>" alt="<%= i.alt %>">
+                <a data-translate-id="portfolioItem<%= portfolio.indexOf(i) + 1%>" class="portfolio__item-link" href="#">
+                  <%= i.title %>
+                </a>
+              </li>
+            <% }) %>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" id="contacts">
+      <div class="container">
+        <h2 data-translate-id="contactsTitle" class="title footer__title">Contacts</h2>
+        <p data-translate-id="contactsSubtitle" class="footer__subtitle">Want to know more or just chat? <br>
+          You are welcome!</p>
+        <button data-translate-id="contactsMessage" class="button footer__button">Send message</button>
+        <ul class="footer__list">
+          <% const social  = [
+            {src: 'linkedIn.svg', alt: 'LinkedIn' },
+            {src: 'instagram.svg', alt: 'Instagram' },
+            {src: 'be.svg', alt: 'Behance' },
+            {src: 'dribble.svg', alt: 'Dribble' }]
+           %>
+
+           <% social.forEach(i => { %>
+            <li>
+              <a href="#">
+                <img src="<%= require(`@icons/${i.src}`) %>" alt="<%= i.alt %>">
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+        <p data-translate-id="contactsCaption" class="footer__caption">Like me on <br>
+          LinkedIn, Instagram, Behance, Dribble</p>
+      </div>
+    </footer>
+  </body>
+</html>

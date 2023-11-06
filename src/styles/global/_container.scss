@@ -1,0 +1,10 @@
+.container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: $sm) {
+    max-width: 320px;
+    padding: 0;
+  }
+}
